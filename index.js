@@ -1,11 +1,14 @@
+#!/usr/bin/env node
+
 const express = require('express')
-var fs = require('fs');
+const path = require('path')
+var fs = require('fs')
 
 const app = express()
 
 const PORT = 3001
 
-let movies = JSON.parse(fs.readFileSync("./movies.json", "utf8"));
+let movies = JSON.parse(fs.readFileSync(path.resolve(__dirname, "movies.json"), "utf8"))
 
 app.use(express.static('public'))
 
