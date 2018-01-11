@@ -18,7 +18,7 @@ app.use(function (req, res, next) {
 })
 
 
-app.use('/images', express.static('public/images'), serveIndex('public/images', {'icons': true}))
+app.use('/images', express.static(path.resolve(__dirname, 'public/images')), serveIndex(path.resolve(__dirname, 'public/images'), {'icons': true}))
 
 app.get('/movies', (req, res) => {
     movies.forEach(movie => {
