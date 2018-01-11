@@ -10,13 +10,19 @@ const PORT = 3001
 
 let movies = JSON.parse(fs.readFileSync(path.resolve(__dirname, "movies.json"), "utf8"))
 
+app.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+})
+
 app.use(express.static('public'))
 
 app.get('/movies', (req, res) => {
     movies.forEach(movie => {
         movie.imageUrl = `http://localhost:${PORT}/images/${movie.imageUrl}`
     });
-    
+
     res.json(movies)
 })
 
