@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const express = require('express')
+const serveIndex = require('serve-index')
 const path = require('path')
 var fs = require('fs')
 
@@ -16,7 +17,8 @@ app.use(function (req, res, next) {
     next();
 })
 
-app.use(express.static('public'))
+
+app.use('/images', express.static('public/images'), serveIndex('public/images', {'icons': true}))
 
 app.get('/movies', (req, res) => {
     movies.forEach(movie => {
