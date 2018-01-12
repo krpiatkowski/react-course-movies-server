@@ -10,6 +10,9 @@ const app = express()
 const PORT = 3001
 
 let movies = JSON.parse(fs.readFileSync(path.resolve(__dirname, "movies.json"), "utf8"))
+movies.forEach(movie => {
+    movie.imageUrl = `http://localhost:${PORT}/images/${movie.imageUrl}`
+});
 
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -21,10 +24,6 @@ app.use(function (req, res, next) {
 app.use('/images', express.static(path.resolve(__dirname, 'public/images')), serveIndex(path.resolve(__dirname, 'public/images'), {'icons': true}))
 
 app.get('/movies', (req, res) => {
-    movies.forEach(movie => {
-        movie.imageUrl = `http://localhost:${PORT}/images/${movie.imageUrl}`
-    });
-
     res.json(movies)
 })
 
