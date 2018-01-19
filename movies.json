@@ -89,5 +89,45 @@
         ],
         "imageUrl": "coco.jpg",
         "description": "Aspiring musician Miguel, confronted with his family's ancestral ban on music, enters the Land of the Dead to find his great-great-grandfather, a legendary singer."
+    },
+    {
+        "id": 8,
+        "title": "The Shawshank Redemption",
+        "year": 1994,
+        "director": "Frank Darabont",
+        "stars": [
+            "Tim Robbins",
+            "Morgan Freeman",
+            "Bob Gunton"
+        ],
+        "imageUrl": "shawshank.jpg",
+        "description": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency."
+    },
+    {
+        "id": 9,
+        "title": "Star Wars: Episode IV - A New Hope",
+        "year": 1977,
+        "director": "George Lucas",
+        "stars": [
+            "Mark Hamill",
+            "Harrison Ford",
+            "Carrie Fisher"
+        ],
+        "imageUrl": "sw_eiv.jpg",
+        "description": "Luke Skywalker joins forces with a Jedi Knight, a cocky pilot, a Wookiee and two droids to save the galaxy from the Empire's world-destroying battle-station while also attempting to rescue Princess Leia from the evil Darth Vader."
+    },
+    {
+        "id": 10,
+        "title": "The Big Short",
+        "year": 2015,
+        "director": "Adam McKay",
+        "stars": [
+            "Christian Bale",
+            "Steve Carell",
+            "Ryan Gosling",
+            "Brad Pitt"
+        ],
+        "imageUrl": "thebigshort.jpg",
+        "description": "In 2006-7 a group of investors bet against the US mortgage market. In their research they discover how flawed and corrupt the market is."
     }
 ]
