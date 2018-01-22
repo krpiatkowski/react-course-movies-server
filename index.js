@@ -14,6 +14,25 @@ movies.forEach(movie => {
     movie.imageUrl = `http://localhost:${PORT}/images/${movie.imageUrl}`
 });
 
+let actors = []
+let actorId = 1;
+movies.forEach(movie => {
+    movie.stars.forEach(star => {
+        let actor
+        let actorIndex = actors.map(a => a.name).indexOf(star)
+        if (actorIndex !== -1) {
+            actor = actors[actorIndex]
+            actor.movies.push(movie)
+        } else {
+            actor = { id: actorId, name: star, movies: [movie] }
+            actors.push(actor)
+            actorId++
+        }
+    })
+})
+actors.sort((a, b) => a.name.localeCompare(b.name))
+
+
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -25,6 +44,10 @@ app.use('/images', express.static(path.resolve(__dirname, 'public/images')), ser
 
 app.get('/movies', (req, res) => {
     res.json(movies)
+})
+
+app.get('/actors', (req, res) => {
+    res.json(actors)
 })
 
 app.listen(PORT, () => console.log(`Serving movies on port ${PORT}!`))
